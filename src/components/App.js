@@ -8,7 +8,8 @@ import CalcButton from './CalcButton';
 import reducer, { initialState } from '../reducers/index';
 
 import {addOne} from '../actions/index.js';
-import {applyNumber} from '../actions/index.js'
+import {applyNumber} from '../actions/index.js';
+import {changeOperation} from '../actions/index.js';
 
 function App() {
   const [ state, dispatch ] = useReducer(reducer, initialState);
@@ -18,6 +19,9 @@ function App() {
   }
   const onClick2 = (event) => {
     dispatch(applyNumber(parseInt(event.target.value)));
+  }
+  const onClick3 = (event) => {
+    dispatch(changeOperation(event.target.value));
   }
   return (
     <div className="App">
@@ -60,9 +64,9 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"+"}/>
-              <CalcButton value={"*"}/>
-              <CalcButton value={"-"}/>
+              <CalcButton onClick={onClick3} value={"+"}/>
+              <CalcButton onClick={onClick3} value={"*"}/>
+              <CalcButton onClick={onClick3} value={"-"}/>
             </div>
 
             <div className="row ce_button">
