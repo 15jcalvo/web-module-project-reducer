@@ -10,6 +10,8 @@ import reducer, { initialState } from '../reducers/index';
 import {addOne} from '../actions/index.js';
 import {applyNumber} from '../actions/index.js';
 import {changeOperation} from '../actions/index.js';
+import {clearDisplay} from '../actions/index.js';
+
 
 function App() {
   const [ state, dispatch ] = useReducer(reducer, initialState);
@@ -23,6 +25,10 @@ function App() {
   const onClick3 = (event) => {
     dispatch(changeOperation(event.target.value));
   }
+  const onClick4 = () => {
+    dispatch(clearDisplay())
+  }
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -70,7 +76,7 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"}/>
+              <CalcButton onClick={onClick4} value={"CE"}/>
             </div>
 
           </form>
