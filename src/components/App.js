@@ -12,6 +12,8 @@ import {applyNumber} from '../actions/index.js';
 import {changeOperation} from '../actions/index.js';
 import {clearDisplay} from '../actions/index.js';
 import {memoryStore} from '../actions/index.js';
+import {memoryReturn} from '../actions/index.js';
+import {memoryClear} from '../actions/index.js';
 
 
 function App() {
@@ -32,6 +34,12 @@ function App() {
   const onClick5 = () => {
     dispatch(memoryStore());
   }
+  const onClick6 = () => {
+    dispatch(memoryReturn());
+  }
+  const onClick7 = () => {
+    dispatch(memoryClear());
+  }
 
   return (
     <div className="App">
@@ -51,8 +59,8 @@ function App() {
             
             <div className="row">
               <CalcButton onClick={onClick5} value={"M+"}/>
-              <CalcButton value={"MR"}/>
-              <CalcButton value={"MC"}/>
+              <CalcButton onClick={onClick6} value={"MR"}/>
+              <CalcButton onClick={onClick7} value={"MC"}/>
             </div>
 
             <div className="row">
