@@ -11,6 +11,7 @@ import {addOne} from '../actions/index.js';
 import {applyNumber} from '../actions/index.js';
 import {changeOperation} from '../actions/index.js';
 import {clearDisplay} from '../actions/index.js';
+import {memoryStore} from '../actions/index.js';
 
 
 function App() {
@@ -26,7 +27,10 @@ function App() {
     dispatch(changeOperation(event.target.value));
   }
   const onClick4 = () => {
-    dispatch(clearDisplay())
+    dispatch(clearDisplay());
+  }
+  const onClick5 = () => {
+    dispatch(memoryStore());
   }
 
   return (
@@ -46,7 +50,7 @@ function App() {
             </div>
             
             <div className="row">
-              <CalcButton value={"M+"}/>
+              <CalcButton onClick={onClick5} value={"M+"}/>
               <CalcButton value={"MR"}/>
               <CalcButton value={"MC"}/>
             </div>
