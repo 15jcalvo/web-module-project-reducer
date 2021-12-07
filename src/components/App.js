@@ -8,12 +8,16 @@ import CalcButton from './CalcButton';
 import reducer, { initialState } from '../reducers/index';
 
 import {addOne} from '../actions/index.js';
+import {applyNumber} from '../actions/index.js'
 
 function App() {
   const [ state, dispatch ] = useReducer(reducer, initialState);
   console.log(state);
   const onClick1 = () => {
     dispatch(addOne());
+  }
+  const onClick2 = (event) => {
+    dispatch(applyNumber(parseInt(event.target.value)));
   }
   return (
     <div className="App">
@@ -38,7 +42,7 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton onClick={onClick1} value={1}/>
+              <CalcButton onClick={onClick2} value={1}/>
               <CalcButton value={2}/>
               <CalcButton value={3}/>
             </div>
